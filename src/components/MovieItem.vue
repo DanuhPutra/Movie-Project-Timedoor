@@ -1,7 +1,7 @@
 <template>
   <div class="col-lg-3 col-md-4 col-sm-6">
     <div class="featured__item">
-      <img class="featured__item__pic" :src="dataLokal.imgUrl" />
+      <img class="featured__item__pic" :src="dataLokal.imgUrl" alt="no image" />
       <div class="featured__item__text">
         <router-link
           :to="{ name: 'MovieDetail', params: { id: dataLokal.id } }"

@@ -9,7 +9,14 @@
             <h2>Movie List</h2>
           </div>
           <!-- Genre Component -->
-          <kategori-movie></kategori-movie>
+          <div class="kategori">
+            <kategori-movie
+              v-for="(data, index) in listKategori"
+              :key="index"
+              :dataKategori="data"
+              :index="index"
+            ></kategori-movie>
+          </div>
         </div>
       </div>
       <!-- Movie List Component -->
@@ -24,6 +31,21 @@ import MovieList from "../MovieList.vue";
 import Header from "../Header.vue";
 
 export default {
+  data() {
+    return {
+      listKategori: [
+        { name: "All" },
+        { name: "Action" },
+        { name: "Science Fiction" },
+        { name: "Horror" },
+        { name: "Thriller" },
+        { name: "Comedy" },
+        { name: "Romance" },
+        { name: "Adventure" },
+        { name: "Fantasy" }
+      ]
+    };
+  },
   components: {
     "kategori-movie": MovieGenre,
     "list-movie": MovieList,
@@ -46,5 +68,12 @@ export default {
   color: #1c1c1c;
   font-weight: 700;
   position: relative;
+}
+.kategori {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
 }
 </style>

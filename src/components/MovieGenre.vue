@@ -1,36 +1,15 @@
 <template>
   <div class="featured__controls">
-    <ul>
-      <li @click="pindahGenre">All</li>
-      <li>Actions</li>
-      <li>Science Fiction</li>
-      <li>Horror</li>
-      <li>Thriller</li>
-      <li>Comedy</li>
-      <li>Romance</li>
-      <li>Adventure</li>
-      <li>Fantasy</li>
-    </ul>
-    <!-- <button
-      v-for="genre in genreSelect"
-      @click="genreSekarang = genre.componentName"
-    >
-      {{ genre.buttonName }}
-    </button> -->
+    <p>{{ dataKategori.name }}</p>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["dataLokal"],
+  props: ["dataLokal", "dataKategori"],
   data() {
     return {
       genreFilter: { filtered: "" }
-      //   genreSelect: [
-      //     { componentName: "all", buttonName: "ALL" },
-      //     { componentName: "actions", buttonName: "ACTIONS" }
-      //   ],
-      //   genreSekarang: "all"
     };
   },
   methods: {
@@ -47,21 +26,16 @@ export default {
   margin-bottom: 50px;
 }
 
-.featured__controls ul li {
-  list-style: none;
-  font-size: 18px;
-  color: #1c1c1c;
-  display: inline-block;
-  margin-right: 25px;
-  position: relative;
+.featured__controls p {
   cursor: pointer;
+  padding: 20px 30px;
 }
 
-.featured__controls ul li.active:after {
+.featured__controls p.active:after {
   opacity: 1;
 }
 
-.featured__controls ul li:after {
+.featured__controls p:after {
   position: absolute;
   left: 0;
   bottom: -2px;
@@ -72,7 +46,10 @@ export default {
   opacity: 0;
 }
 
-.featured__controls ul li:last-child {
-  margin-right: 0;
+.featured__controls p:hover {
+  color: aqua;
+  background-color: #7fad39;
+  padding: 20px 30px;
+  border-radius: 20px;
 }
 </style>
