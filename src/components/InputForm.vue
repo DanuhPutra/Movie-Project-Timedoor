@@ -101,8 +101,15 @@
           placeholder="Your Review"
           v-model="dataInputFilm.komentar"
         ></textarea>
-        <button v-on:click.prevent="postFilm()" class="site-btn">
+        <button
+          v-on:click.prevent="postFilm()"
+          class="site-btn"
+          v-if="isCreate"
+        >
           Add Review
+        </button>
+        <button v-if="isEdit">
+          Edit Movie
         </button>
       </div>
     </div>
@@ -115,6 +122,7 @@
 import { eventBus } from "../main";
 
 export default {
+  props: ["isEdit", "isCreate"],
   data() {
     return {
       dataInputFilm: {

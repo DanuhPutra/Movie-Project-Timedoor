@@ -15,6 +15,7 @@ import MovieItem from "./MovieItem";
 import { eventBus } from "../main";
 
 export default {
+  props: ["dataKategori"],
   data() {
     return {
       dataMovie: [],
@@ -49,10 +50,23 @@ export default {
         });
     },
 
-    filterFilm() {
-      this.dataMovieFilter.filter(data => {
-        return;
-      });
+    filterFilm(value) {
+      // const filerGenre = this.dataMovie.filter(data => {
+      //   if (value == "All") {
+      //     return data.genre;
+      //   } else {
+      //     return data.genre = this.dataMovie.filter(data => data.genre == value)
+      //   }
+      // });
+      // this.dataMovieFilter = filerGenre;
+      // console.log(this.dataMovieFilter);
+      if (value == "All") {
+        this.dataMovieFilter = this.dataMovie;
+      } else {
+        this.dataMovieFilter = this.dataMovie.filter(
+          data => data.genre == value
+        );
+      }
     }
   },
   mounted() {
@@ -61,9 +75,14 @@ export default {
       console.log("menerima delete ");
       const filterHapus = this.dataMovie.findIndex(film => id === film.id);
       this.dataMovie.splice(filterHapus, 1);
+      this.dataMovieFilter.splice(filterHapus, 1);
       this.$http.delete(
         `https://nanuu-movie-default-rtdb.firebaseio.com/movie/${id}.json`
       );
+    });
+
+    eventBus.$on("mengirimGenre", value => {
+      this.filterFilm(value);
     });
   }
 };

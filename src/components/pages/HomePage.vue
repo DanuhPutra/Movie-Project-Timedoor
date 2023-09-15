@@ -29,20 +29,21 @@
 import MovieGenre from "../MovieGenre.vue";
 import MovieList from "../MovieList.vue";
 import Header from "../Header.vue";
+import { eventBus } from "../../main";
 
 export default {
   data() {
     return {
       listKategori: [
-        { name: "All" },
-        { name: "Action" },
-        { name: "Science Fiction" },
-        { name: "Horror" },
-        { name: "Thriller" },
-        { name: "Comedy" },
-        { name: "Romance" },
-        { name: "Adventure" },
-        { name: "Fantasy" }
+        { name: "All", value: "All" },
+        { name: "Action", value: "Action" },
+        { name: "Science Fiction", value: "Science Fiction" },
+        { name: "Horror", value: "Horror" },
+        { name: "Thriller", value: "Thriller" },
+        { name: "Comedy", value: "Comedy" },
+        { name: "Romance", value: "Romance" },
+        { name: "Adventure", value: "Adventure" },
+        { name: "Fantasy", value: "Fantasy" }
       ]
     };
   },

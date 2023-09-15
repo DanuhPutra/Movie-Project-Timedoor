@@ -25,7 +25,7 @@
           <div class="col-lg-8 col-md-4 blog__details__content">
             <div class="blog__details__text">
               <div class="blog__details__text__img">
-                <img :src="dataLokal.imgUrl" alt="" />
+                <img :src="dataLokal.imgUrl" alt="image error" />
               </div>
               <p>
                 {{ dataLokal.komentar }}

@@ -1,20 +1,25 @@
 <template>
   <div class="featured__controls">
-    <p>{{ dataKategori.name }}</p>
+    <p @click="mengirimGenre">{{ dataKategori.name }}</p>
   </div>
 </template>
 
 <script>
+import { eventBus } from "../main";
 export default {
   props: ["dataLokal", "dataKategori"],
   data() {
     return {
-      genreFilter: { filtered: "" }
+      genreFilter: { filtered: "" },
+      kategoriValue: [""]
     };
   },
   methods: {
-    pindahGenre() {
-      console.log("pindah");
+    // pindahGenre() {
+    //   console.log("pindah");
+    // },
+    mengirimGenre() {
+      eventBus.$emit("mengirimGenre", this.dataKategori.value);
     }
   }
 };

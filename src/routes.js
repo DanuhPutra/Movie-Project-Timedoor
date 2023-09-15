@@ -1,6 +1,7 @@
 import HomePage from "./components/pages/HomePage.vue";
 import MovieDetailPage from "./components/pages/MovieDetailPage.vue";
 import NewMovieDetailPage from "./components/pages/NewMoviePage.vue";
+import UpdateMoviePage from "./components/pages/UpdateMoviePage.vue";
 
 export const routes = [
   {
@@ -17,5 +18,10 @@ export const routes = [
     path: "/NewMovie",
     name: "NewMovie",
     component: NewMovieDetailPage
+  },
+  {
+    path: "/UpdateMovie",
+    name: "UpdateMovie",
+    component: UpdateMoviePage
   }
 ];

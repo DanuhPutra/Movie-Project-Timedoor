@@ -4,22 +4,39 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="contact__form__title">
-            <h2>Add New Movie</h2>
+            <h2>Edit Movie Movie</h2>
           </div>
         </div>
       </div>
       <!-- Form Component -->
-      <form-baru :isCreate="true"></form-baru>
+      <edit-movie :isEdit="true"></edit-movie>
     </div>
   </div>
 </template>
 
 <script>
-import InputForm from "../InputForm.vue";
-
+import InputForm from "../inputform.vue";
+import { eventBus } from "../../main";
 export default {
+  data: function() {
+    return {
+      dataLamaFilm: []
+    };
+  },
   components: {
-    "form-baru": InputForm
+    "edit-movie": InputForm
+  },
+  methods: {
+    dataLamaBaru(dataLama) {
+      console.log("data lama telah diterima");
+      return this.dataLamaFilm == dataLama;
+      console.log(this.dataLamaFilm);
+    }
+  },
+  mounted() {
+    eventBus.$on("mengirimDetailMovie", dataLama => {
+      this.dataLamaBaru(dataLama);
+    });
   }
 };
 </script>
